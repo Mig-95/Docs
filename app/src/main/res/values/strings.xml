@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Chiffres Romains</string>
+    <string name="ToRomanNumerals">EN CHIFFRES ROMAINS</string>
+    <string name="HintInput">Entrer un chiffre à convertir</string>
+    <string name="error_empty_input">Veuilllez entrer un nombre</string>
+
+</resources>
