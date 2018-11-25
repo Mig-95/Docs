@@ -4,8 +4,9 @@ public class ToRomanNumerals {
 
     public static String IntToRomanNumber(int input) {
         if (input < 1 || input > 4999)
-            throw new IllegalArgumentException("Valeur invalide");
+            throw new IllegalArgumentException("Valeur invalide"); //BEN_CORRECTION : Message d'erreur imprécis.
 
+        //BEN_CORRECTION : Duplication de code.
         String romanNumber = "";
         while (input >= 1000) {
             romanNumber += "M";

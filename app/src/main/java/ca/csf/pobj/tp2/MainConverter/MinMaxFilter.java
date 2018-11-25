@@ -8,6 +8,8 @@ public class MinMaxFilter implements InputFilter {
     private int mIntMin, mIntMax;
 
     public MinMaxFilter(String minValue, String maxValue) {
+        //BEN_CORRECTION : Défaut de conception. Devrait prendre en paramètre des "int" au lieu de des strings.
+        //                 Problème de robustesse.
         this.mIntMin = Integer.parseInt(minValue);
         this.mIntMax = Integer.parseInt(maxValue);
     }
@@ -23,6 +25,7 @@ public class MinMaxFilter implements InputFilter {
         return "";
     }
 
+    //BEN_CORRECTION : Nommage des variables.
     private boolean isInRange(int a, int b, int c) {
         return b > a ? c >= a && c <= b : c >= b && c <= a;
     }

@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         return StringUtils.isBlank(currentInput.getText().toString());
     }
 
+    //BEN_CORRECTION : Fonction dont le nom débute par "is", mais ne retourne pas de "boolean".
     private void isReturnPressedConditions() {
         currentInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         currentInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if (s.toString().equals("")) {
+                if (s.toString().equals("")) { //BEN_REVIEW : Pas assez solide. Que se passe t-il s'il y a des espaces ?
                     confirmButton.setEnabled(false);
                 } else {
                     confirmButton.setEnabled(true);
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //BEN_REVIEW : Aurait pu être réduit à une seule ligne.
                 if (s.toString().equals("")) {
                     confirmButton.setEnabled(false);
                 } else {
@@ -125,42 +127,56 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON START");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON STOP");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON RESUME");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON PAUSE");
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        //BEN_CORRECTION : Constantes pour ces chaines de caractères.
         outState.putCharSequence("userInput", (this.currentInput).getText().toString());
         outState.putCharSequence("display", this.currentDisplay.getText().toString());
-        super.onSaveInstanceState(outState);
+        super.onSaveInstanceState(outState); //BEN_REVIEW : "super" devrait être appellé en premier.
 
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON SAVE");
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        //BEN_CORRECTION : Constantes pour ces chaines de caractères.
         this.currentInput.setText(savedInstanceState.getCharSequence("userInput"));
         this.currentDisplay.setText(savedInstanceState.getCharSequence("display"));
-        super.onRestoreInstanceState(savedInstanceState);
+        super.onRestoreInstanceState(savedInstanceState); //BEN_REVIEW : "super" devrait être appellé en premier.
 
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON RESTORE");
     }
 
@@ -168,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
+        //BEN_CORRECTION : Log inutile. Ne convient qu'à l'exercice que nous avions fait, pas à une application
+        //                 de ce type.
         Log.v("LIFE CYCLE", "ON DESTROY");
     }
 
